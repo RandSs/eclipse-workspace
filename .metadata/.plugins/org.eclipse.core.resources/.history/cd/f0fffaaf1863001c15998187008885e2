@@ -1,0 +1,32 @@
+package vue;
+
+import java.util.ArrayList;
+
+import DAO.FlightDAO;
+import entites.Database;
+import entites.Flight;
+
+public class Main {
+
+	public static void main(String[] args) {
+		   Database.connect();
+		   FlightDAO flightDao = new FlightDAO();
+		   
+		   
+		   
+		   ArrayList<Flight> fly = flightDao.getAll(); 
+		   
+		   for(Flight val:fly) {
+			   
+			   System.out.println(val);
+		   }
+       
+		   Flight flight = new Flight();
+		   flight.setNumero("afpa32");
+		   flight.setDestination("tunise");
+		   
+		   flightDao.save(flight);
+		   
+	}
+
+}

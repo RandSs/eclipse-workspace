@@ -1,0 +1,62 @@
+package checkIn;
+
+import java.util.Scanner;
+
+public class checkIn {
+
+	public static void main(String[] args) {
+		Scanner clavier = new Scanner(System.in);
+		System.out.println("pour commancer une session d'enregistrement tapper 1: ");
+		int start = clavier.nextInt(); 
+		
+	int codeList[] = {111, 222, 333, 444, 555};	
+	
+	String nameList[] = {"faicel","thierry","mohammed", "yacine","robin"}; 
+	
+		
+		if(start == 1 ) {
+			
+			System.out.println("bienvenue //\\ " );
+			System.out.println("Merci d'entrer Votre code: " );
+			
+			int code = clavier.nextInt(); 
+			
+			for(int i = 0; i< codeList.length; i++) {
+						
+						if(code == codeList[i]) {
+	
+							System.out.println("Binvenue "+ nameList[i]);
+						
+						
+					}else {
+						
+						System.out.println("Merci de rerentrer un code valide svp :");
+					}
+					
+				
+				
+			}
+			
+			
+			
+			
+		}else {
+			
+			System.out.println("pour commancer une session d'enregistrement tapper 1: ");
+		start = clavier.nextInt(); 
+			
+		}
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		clavier.close();
+
+	}
+
+}

@@ -1,0 +1,45 @@
+package vue;
+
+import java.util.Scanner;
+
+public class Functions {
+	
+	
+	public static void starts(Scanner clavier) {
+		
+		int codeList[] = {111, 222, 333, 444, 555};	
+		String nameList[] = {"faicel","thierry","mohammed", "yacine","robin"}; 
+		int start=0;
+		
+		
+		while(start !=1  ) {
+		System.out.println("pour commancer une session d'enregistrement tapper 1: ");
+	       start = clavier.nextInt(); 
+		}	
+
+		int code=0;
+		 int codeOk=0;
+		String name="";
+		String message="";
+		
+		
+		do{
+			System.out.println("Merci d'entrer Votre code: " );
+			
+			 code = clavier.nextInt();		
+			
+			 for(int i =0; i< codeList.length; i++) {
+				 if(code == codeList[i]) {
+				   name= nameList[i];
+				   codeOk = code;
+				 }
+		         }
+				 } while (code != codeOk);
+		
+		System.out.println("Binvenue " + name);
+		System.out.println();
+		}
+		
+	
+
+}

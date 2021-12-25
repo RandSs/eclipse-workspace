@@ -1,0 +1,349 @@
+package vue;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import DAO.FlightDAO;
+import DAO.PassengerDAO;
+import entites.Database;
+import entites.Flight;
+import entites.Passenger;
+
+public class Functions {
+	
+	
+	public static void starts(Scanner clavier) {
+		
+		int codeList[] = {111, 222, 333, 444, 555};	
+		String nameList[] = {"faicel","thierry","mohammed", "yacine","robin"}; 
+		int start=0;
+		
+		
+		while(start !=1  ) {
+		System.out.println("pour commancer une session d'enregistrement tapper 1: ");
+	       start = clavier.nextInt(); 
+		}	
+
+		int code=0;
+		 int codeOk=0;
+		String name="";
+		String message="";
+		
+		
+		do{
+			System.out.println("Merci d'entrer Votre code: " );
+			
+			 code = clavier.nextInt();		
+			
+			 for(int i =0; i< codeList.length; i++) {
+				 if(code == codeList[i]) {
+				   name= nameList[i];
+				   codeOk = code;
+				 }
+		         }
+				 } while (code != codeOk);
+		
+		System.out.println("Binvenue " + name);
+		System.out.println();
+		}
+		
+	
+	
+	
+	public static void menu(Scanner clavier) {
+		
+		System.out.println();
+		System.out.println("------------Menu------------------");
+		System.out.println();
+		System.out.println();
+		System.out.println("1----------pour-----flight"); 
+		System.out.println("2----------pour-----enregitrement"); 
+		System.out.println("3----------pour-----Baggage"); 
+		System.out.println("4----------pour-----Seats");
+		System.out.println("5----------pour-----Class");
+		System.out.println("6----------pour-----Boarding"); 
+		
+		int menu =0;
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		while(menu <1 || menu > 6)	{
+		
+		System.out.println("choisisser un chiffre de 1 à 6 pour y accèder :");
+		System.out.println();
+		System.out.println("tapper 0 pour sortir : ");
+
+	    menu = clavier.nextInt();
+		}
+	
+		switch(menu) {
+	
+		case 1:
+			System.out.println("------------Our flight list-------------");
+			
+			System.out.println();
+			Database.connect();
+			FlightDAO flightDao = new FlightDAO();
+			
+			   ArrayList<Flight> fly = flightDao.getAll(); 
+			   
+			   for(Flight val:fly) {
+				   
+				   System.out.println(val);
+			   }
+			int retourner =0;
+			while(retourner <1 || retourner > 2)	{
+			
+			System.out.println();
+			System.out.println("Pour choisir un autre vole tapper 1 ");
+			System.out.println();
+			System.out.println("Pour retourner au menu principale tapper 2");
+			System.out.println();
+		      retourner = clavier.nextInt();
+
+			if(retourner == 1) {
+				   for(Flight val:fly) {
+					   
+					   System.out.println(val);
+				   }
+			   
+			
+			}else if(retourner == 2) { 
+				menu(clavier);
+				
+			}
+			}
+			break;
+	
+		    case 2:    
+		    	enregitrement( clavier);
+			
+
+			break;
+			
+		}
+	
+	}
+	
+  public static void enregitrement(Scanner clavier) {
+	  
+	  ArrayList<Passenger> col = new ArrayList<Passenger>();
+	
+		PassengerDAO passDao= new PassengerDAO(); 
+    String nbBillet= "";
+	System.out.println("chercher un passager par son N° de billet");
+	System.out.println();
+	while(nbBillet == "") {
+	System.out.println("Merci de tapper le N° de billet : ");
+	System.out.println();
+	
+	nbBillet = clavier.nextLine(); 
+
+
+	}
+	
+	    System.out.println();
+	
+	 System.out.print(passDao.getById(nbBillet));
+	  
+	 col.add(passDao.getById(nbBillet));
+	 
+	 //System.out.print(col);
+	 
+	 
+	 
+	
+	
+	System.out.println();
+	System.out.println();
+System.out.println("Voulez vous enregistrer le passager ? : "+ col.get(1) );
+System.out.println();
+System.out.println("tapper 1 pour oui : ");
+System.out.println();
+System.out.println("tapper 0 pour Non : ");
+	
+	String check = clavier.next(); 
+
+	/*
+	if(check.equals(1)){
+		
+		System.out.println("Vous ete sure de vouloir enregistrer le passager N° :  " + nbBillet);
+		System.out.println("tapper 1 pour oui : ");
+		System.out.println("tapper 0 pour Non : ");
+			
+			int enregitrer = clavier.nextInt();
+			String checked ="";
+			
+			
+			if(enregitrer ==1 ) {
+				
+				passDao.save()
+				
+								
+						
+						}
+					}
+				
+				System.out.println();
+				System.out.println("Votre passager est :  " + checked);
+				System.out.println();
+				System.out.println("tapper les dernier chiffre du vol pour imprimer le boarding pass: ");
+				System.out.println();
+				
+			int flightNb = clavier.nextInt();
+			String nom="";
+			String prenom= "";
+			String seat="";
+			String bag="";
+				if(flightNb != 0) {
+				for(int i = 0; i< paxListafpa290.length; i++) {
+				for(String val:paxListafpa290[i]) {
+					if(nbBillet.toLowerCase().equals(paxListafpa290[i][0]) ) {
+				}	
+				}
+				nom = paxListafpa290[i][1];
+				prenom = paxListafpa290[i][2];
+				seat=paxListafpa290[i][3];
+				bag=paxListafpa290[i][4];
+				}
+				printBoardingPass(clavier,nom,prenom ,seat,  flightNb);
+				System.out.println();
+				System.out.println("Vous avais un baggage à enregistrer pour N° :  " + nbBillet);
+				System.out.println("tapper O pour Oui : ");
+				System.out.println("tapper N pour Non : ");
+				
+				String addBag = clavier.next();
+		
+				
+				
+				if(addBag.equals("o") ){
+					System.out.println("entrer le poids du baggage : ");
+					int poids = clavier.nextInt();
+					
+					addBaggage(clavier, nom,  prenom, bag,poids,flightNb);
+
+				}else {
+					System.out.print("Pas de baggage à enregtstrer");
+					System.out.println();
+					System.out.println();
+					
+				}
+				
+				System.out.print("tapper 1 pour retourner au menu principal :");
+				System.out.println();
+				System.out.println();
+				System.out.print("tapper 2 pour enregitrer un autre passager :");
+				
+				int retour = clavier.nextInt();
+				
+				if(retour ==1) {
+					menu( clavier);
+				}else {
+					enregitrement(clavier);
+					
+				}
+		
+				
+				
+				}
+			}
+
+		
+	}else if(check.equals("n")){
+		System.out.print("Non");
+	}else {
+		System.out.print("Merci de prendre un autre passager .");
+	}
+}
+	
+	
+
+
+public static void printBoardingPass(Scanner clavier, String nom, String prenom, String seat,int flightNb) {
+
+	    
+	    String date = "";
+	    String destination ="";
+	    String depart="";
+	    String arriver ="";
+	     
+	    switch(flightNb){
+	    	
+	    	case 290:
+	    		for(int i=0; i<  details290.size();i++) {
+	    			date= details290.get(0);
+	    			destination =details290.get(1);
+	    			depart=details290.get(2);
+	    			arriver = details290.get(3);
+	    		}
+	    	
+	    		boardingPass( nom,  prenom, date, seat,depart , arriver, destination, flightNb);
+	    		break;
+	    	case 300:
+	    		for(int i=0; i<  details300.size();i++) {
+	    			date= details300.get(0);
+	    			destination =details300.get(1);
+	    			depart=details300.get(2);
+	    			arriver = details300.get(3);
+	    		}
+	    	
+	    		boardingPass( nom,  prenom, date, seat,depart , arriver, destination, flightNb);
+	    		break;
+	      	case 400:
+	    		for(int i=0; i<  details400.size();i++) {
+	    			date= details400.get(0);
+	    			destination =details400.get(1);
+	    			depart=details400.get(2);
+	    			arriver = details400.get(3);
+	    		}
+	    	
+	    		boardingPass( nom,  prenom, date, seat,depart , arriver, destination, flightNb);
+	    		break;
+	    		
+	      	case 32:
+	    		for(int i=0; i<  details32.size();i++) {
+	    			date= details32.get(0);
+	    			destination =details32.get(1);
+	    			depart=details32.get(2);
+	    			arriver = details32.get(3);
+	    		}
+	    	
+	    		boardingPass( nom,  prenom, date, seat,depart , arriver, destination, flightNb);
+	    		break;
+	    		
+	    	case 10:
+	    		for(int i=0; i<  details10.size();i++) {
+	    			date= details10.get(0);
+	    			destination =details10.get(1);
+	    			depart=details10.get(2);
+	    			arriver = details10.get(3);
+	    		}
+	    	
+	    		boardingPass( nom,  prenom, date, seat,depart , arriver, destination, flightNb);
+	    		break;
+	    		
+	    	
+	    			
+	    			
+	    }
+	    
+	   */ 
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	}
+
+	
+	
+	
+	
+	
+	
+
+

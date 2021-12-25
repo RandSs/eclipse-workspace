@@ -1,0 +1,61 @@
+package entites;
+
+public class Passenger {
+	
+	private int id;
+	private String nom;
+	private String prenom;
+	private String numBillet;
+	
+	
+	public Passenger() {
+		
+		
+		
+	}
+	
+	
+	
+public Passenger(String n, String p, String num) {
+	setNom(n);
+	setPrenom( p);
+	setNumBillet(num);
+		
+	}
+	
+	
+	@Override
+public String toString() {
+	return "Passenger  id  :" + id + ", nom :" + nom + ", prenom :" + prenom + ", numBillet  :" + numBillet ;
+}
+
+
+
+	public int getId() {
+		return id;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public String getNumBillet() {
+		return numBillet;
+	}
+	public void setNumBillet(String numBillet) {
+		this.numBillet = numBillet;
+	}
+	
+	
+	
+	
+
+}

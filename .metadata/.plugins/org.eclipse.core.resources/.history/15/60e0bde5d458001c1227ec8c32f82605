@@ -1,0 +1,176 @@
+package checkIn;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class checkIn {
+
+	public static void main(String[] args) {
+		Scanner clavier = new Scanner(System.in);
+		System.out.println("pour commancer une session d'enregistrement tapper 1: ");
+		int start = clavier.nextInt(); 
+		
+	int codeList[] = {111, 222, 333, 444, 555};	
+	
+	String nameList[] = {"faicel","thierry","mohammed", "yacine","robin"}; 
+	
+		while(start != 0 &&  start==1) {
+			
+			System.out.println("bienvenue //\\//\\ " );
+			System.out.println("Merci d'entrer Votre code: " );
+			
+			int code = clavier.nextInt(); 
+			String name="";
+			String message="";
+			
+			for(int i = 0; i< codeList.length; i++) {
+				
+				if(code ==codeList[i])	{
+					
+							System.out.println("Binvenue "+ nameList[i]);
+							System.out.println();
+							System.out.println();
+							name = nameList[i];	
+							
+							
+							menu();
+					
+							
+						System.out.println("choisisser un chiffre de 1 à 6 pour y accèder :");
+						System.out.println();
+						System.out.println("tapper 0 pour sortir : ");
+						
+						int menu = clavier.nextInt();
+						
+					
+							switch(menu) {
+							
+							case 1:
+								System.out.println("------------Our flight list-------------");
+								
+								System.out.println();
+								
+								afficherFlight(clavier);
+							
+								
+										     int flight = clavier.nextInt();
+											switch(flight) {
+											case 1:
+												System.out.println("flight : " );
+											break;	
+										     	}
+											
+								break;
+							case 2:
+								System.out.println("pax");
+								break;
+							case 3:
+								System.out.println("baggage");
+								break;
+							case 4:
+								System.out.println("Seats");
+								break;
+							case 5:
+								System.out.println("Class");
+								break;
+							case 6:
+								System.out.println("Boarding");
+								break;
+								
+							case 0:
+								System.out.println("Bye Bye " + name);
+								
+						     	
+								break;
+							}	
+							
+					}	else {
+						message =("code invalide merci de recommencer à nouveau: ");
+						
+					}
+						
+			
+			}
+		
+			System.out.println(message);
+		}
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		clavier.close();
+
+	}
+	public static void menu() {
+		
+		System.out.println();
+		System.out.println("Menu:------------------");
+		System.out.println();
+		System.out.println();
+		System.out.println("1------pour-----flight"); 
+		System.out.println("2------pour-----pax"); 
+		System.out.println("3------pour-----Baggage"); 
+		System.out.println("4------pour-----Seats");
+		System.out.println("5------pour-----Class");
+		System.out.println("6------pour-----Boarding"); 
+		
+		
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		
+	}
+	
+	public static void afficherFlight(Scanner clavier) {
+		
+  ArrayList<String> flight = new ArrayList<>();
+  ArrayList<String> details290 = new ArrayList<>();
+
+    flight.add("afpa290");		
+    flight.add("afpa300");	
+    flight.add("afap400");	
+    flight.add("afpa32");	
+    flight.add("afpa10");
+    
+    
+    details290.add("2021-12-15");		
+    details290.add("Rome");	
+    details290.add("07:05");	
+    details290.add("08:30");	
+    
+    for (String val:flight) {
+ 
+    	System.out.println("------------"+val+"-----------");
+
+    }
+    
+	System.out.println();
+	System.out.println();
+	System.out.println("choisisser un vole : ");
+	int flightNbr= clavier.nextInt();
+
+	switch(flightNbr) {
+	case 1:
+		
+		for(String val: details290 ) {
+
+			System.out.println("la date du vole : "+ details290.get(0) + "Destination  : "+ details290.get(1));
+			
+		}
+	
+		break;
+	
+	}
+
+	}
+	
+	
+	
+
+}

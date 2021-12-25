@@ -1,0 +1,29 @@
+package checkInOop;
+
+public class Passager {
+	
+	private String nom;
+	private String prenom;
+	private String billet;
+	private String seat;
+	private String status;
+	private int baggage;
+	
+	
+	
+	Passager (){
+		
+		
+	}
+	
+	Passager (String newNom, String newPrenom, String newBillet, String newSeat, String newStatus, int bag){
+		
+		
+	}
+	
+	
+	
+
+	
+
+}

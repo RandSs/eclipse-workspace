@@ -1,0 +1,90 @@
+package checkInOop;
+
+import java.sql.Date;
+import java.sql.Time;
+
+public class Flight {
+	
+	private String number;
+	private String destination;
+	private Date date;
+	private Time deppart;
+	private Time arriver;
+	
+	
+	public Flight() {
+		
+		
+	}
+
+
+	public Flight(String newNumber, String newDestination, Date newDate, Time newDeppart, Time newArraiver) {
+		
+		this.setNumber(newNumber);
+		this.setDestination(newDestination);
+		this.setDate(newDate);
+		this.setDeppart(newDeppart);
+		this.setArriver(newArriver);
+		
+		
+	}
+	
+
+	public String getNumber() {
+		return this.number;
+		
+	}
+	
+	public void setNumber(String newNumber) {
+		this.number = newNumber;
+		
+	}
+	
+	
+	public String getDestination() {
+		return this.destination;
+		
+	}
+	
+	public void setDestination(String newNumber) {
+		this.destination = newNumber;
+		
+	}
+	
+	
+	
+	
+	public Date getDate() {
+		return this.date;
+		
+	}
+	
+	public void setDate(Date newDate) {
+		this.date = newDate;
+		
+	}
+	
+	
+
+	public Time getDeppart() {
+		return this.deppart;
+		
+	}
+	
+	public void setDeppart(Time newDeppart) {
+		this.deppart = newDeppart;
+		
+	}
+	
+	public Time getArriver() {
+		return this.arriver;
+		
+	}
+	
+	public void setDArriver(Time newArriver) {
+		this.arriver = newArriver;
+		
+	}
+	
+	
+}

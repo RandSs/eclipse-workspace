@@ -1,0 +1,34 @@
+package checkInOop;
+
+public class FlightN {
+	
+	private Flight number;
+	
+	public FlightN() {
+		
+		
+	}
+
+    public FlightN(Flight n) {
+		this.setNumber(n);
+		
+	}
+
+	
+	public String toString() {
+		
+		return "number=" + number  ;
+	}
+
+	public Flight getNumber() {
+		return number;
+	}
+
+	public void setNumber(Flight number) {
+		this.number = number;
+	}
+	
+	
+	
+
+}
